@@ -1,0 +1,44 @@
+﻿@*This line allows the Razor view to use properties and methods of the GuestResponse class when rendering the view model *@
+@model PartyInvites.Models.GuestResponse
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+@*metadata is used to provide information about how the webpage should be displayed on different devices with different screen sizes. Sets the width of the page to match the screen width of the device *@
+    <meta name="viewport" content="width=device-width" />
+    <title>RsvpForm</title>
+</head>
+<body>
+@* When the form is submitted, the browser will send a POST request to the URL specified in the asp-action attribute.*@
+    <form asp-action="RsvpForm" method="post">
+        <div>
+            This is the RsvpForm.cshtml View
+        </div>
+        <div>
+            <label asp-for="Name">Your name</label>
+            <input asp-for="Name" />
+        </div>
+        <div>
+            <label asp-for="Email">Your email</label>
+            <input asp-for="Email" />
+        </div>
+        <div>
+            <label asp-for="Phone">Your phone</label>
+            <input asp-for="Phone" />
+        </div>
+        <div>
+            <label asp-for="WillAttend">Will you attend?</label>
+            <select asp-for="WillAttend">
+                <option value="">Choose an option</option>
+                <option value="true">Yes, I'll be there</option>
+                <option value="false">No, I can't come</option>
+            </select>
+        </div>
+        <button type="submit">Submit RSVP</button>
+    </form>
+</body>
+</html>
