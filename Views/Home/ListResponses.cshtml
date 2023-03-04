@@ -9,23 +9,28 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Resonses</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 </head>
 <body>
-    <h2>Here is a list of all the people attending</h2>
-    <table>
-        <thead>
-            <tr><th>Name</th><th>Email</th><th>Phone</th></tr>
-        </thead>
-        <tbody>
-            <!-- This line of code is a Razor syntax that uses a foreach loop to iterate through a collection of GuestResponse objects, assigning each object to the variable "r". The collection is accessed through the "Model" property, which is a reference to the strongly-typed model passed to the view. The "!" operator is used to indicate that the "Model" property is expected to be non-null. -->
-            @foreach (PartyInvites.Models.GuestResponse r in Model!) {
-                <tr>
-                    <td>@r.Name</td>
-                    <td>@r.Email</td>
-                    <td>@r.Phone</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <div class="text-center p-2">
+        <h2 class="text-center">
+            Here is a list of all the people attending
+        </h2>
+        <table class="table table-bordered table-striped table-sm">
+            <thead>
+                <tr><th>Name</th><th>Email</th><th>Phone</th></tr>
+            </thead>
+            <tbody>
+                <!-- This line of code is a Razor syntax that uses a foreach loop to iterate through a collection of GuestResponse objects, assigning each object to the variable "r". The collection is accessed through the "Model" property, which is a reference to the strongly-typed model passed to the view. The "!" operator is used to indicate that the "Model" property is expected to be non-null. -->
+                @foreach (PartyInvites.Models.GuestResponse r in Model!) {
+                    <tr>
+                        <td>@r.Name</td>
+                        <td>@r.Email</td>
+                        <td>@r.Phone</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
