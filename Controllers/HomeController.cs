@@ -20,8 +20,18 @@ namespace PartyInvites.Controllers {
         [HttpPost]
         public ViewResult RsvpForm(GuestResponse guestResponse) {
             //  takes a GuestResponse object that is populated from RsvpForm.cshtml view as a parameter and adds it to the repository responses list using the Add method.
-            Repository.AddResponse(guestResponse);
-            return View("Thanks", guestResponse);
+            if (ModelState.IsValid)
+            {
+                Repository.AddResponse(guestResponse);
+                return View("Thanks", guestResponse);
+            } else
+            {
+                return View();
+            }
+        }
+        public ViewResult ListResponses()
+        {
+            return View(Repository.Responses.Where(r => r.WillAttend == true));
         }
     }
 }

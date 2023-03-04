@@ -11,6 +11,7 @@
 @*metadata is used to provide information about how the webpage should be displayed on different devices with different screen sizes. Sets the width of the page to match the screen width of the device *@
     <meta name="viewport" content="width=device-width" />
     <title>RsvpForm</title>
+    <link rel="stylesheet" href="~/css/styles.css" />
 </head>
 <body>
 @* When the form is submitted, the browser will send a POST request to the URL specified in the asp-action attribute.*@
@@ -18,6 +19,7 @@
         <div>
             This is the RsvpForm.cshtml View
         </div>
+        <div asp-validation-summary="All"></div>
         <div>
             <label asp-for="Name">Your name</label>
             <input asp-for="Name" />
